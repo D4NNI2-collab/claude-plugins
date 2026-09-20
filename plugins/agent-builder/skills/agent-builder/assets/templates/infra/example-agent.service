@@ -1,0 +1,34 @@
+# Unit do systemd para um agente rodando 24/7 (ver references/10-deploy-e-producao.md).
+# Instalar em: /etc/systemd/system/example-agent.service
+# Ativar:      sudo systemctl enable --now example-agent
+# Logs:        journalctl -u example-agent -f
+# As linhas com "# [python]" / "# [typescript]" são resolvidas pelo scaffold. # [template]
+
+[Unit]
+Description=Agente example-agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Usuário de sistema dedicado, SEM privilégios (crie com: sudo useradd -r -s /usr/sbin/nologin agente)
+User=agente
+WorkingDirectory=/opt/example-agent
+# Segredos fora do git; o processo também valida as variáveis no boot
+EnvironmentFile=/opt/example-agent/.env
+# Canal cli: agent.py/agent.js é uma CLI de teste — troque o ExecStart pelo seu serviço real # [cli]
+ExecStart=/opt/example-agent/.venv/bin/python agent.py # [python] # [cli]
+ExecStart=/opt/example-agent/.venv/bin/python telegram_bot.py # [python] # [telegram]
+ExecStart=/usr/bin/node dist/agent.js # [typescript] # [cli]
+ExecStart=/usr/bin/node dist/telegram.js # [typescript] # [telegram]
+Restart=on-failure
+RestartSec=5
+# Limites de proteção da VPS:
+MemoryMax=1G
+CPUQuota=80%
+# Endurecimento básico:
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

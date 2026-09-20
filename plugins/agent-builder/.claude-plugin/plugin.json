@@ -1,0 +1,11 @@
+{
+  "name": "agent-builder",
+  "version": "1.0.0",
+  "description": "Cria agentes de IA e skills de ponta a ponta seguindo as práticas de engenharia da Anthropic: subagentes do Claude Code, agentes standalone com o Agent SDK (Python/TypeScript), bots de Telegram/WhatsApp e deploy 24/7.",
+  "author": {
+    "name": "D4NNI2-collab",
+    "url": "https://github.com/D4NNI2-collab"
+  },
+  "repository": "https://github.com/D4NNI2-collab/claude-plugins",
+  "keywords": ["agentes", "agent-sdk", "subagentes", "skills", "telegram", "bots"]
+}

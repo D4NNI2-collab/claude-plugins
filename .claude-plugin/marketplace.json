@@ -1,0 +1,18 @@
+{
+  "name": "d4nni2-plugins",
+  "metadata": {
+    "description": "Plugins de Claude Code do D4NNI2 — construção de agentes de IA com as práticas de engenharia da Anthropic."
+  },
+  "owner": {
+    "name": "D4NNI2-collab",
+    "url": "https://github.com/D4NNI2-collab"
+  },
+  "plugins": [
+    {
+      "name": "agent-builder",
+      "source": "./plugins/agent-builder",
+      "description": "Cria agentes de IA e skills de ponta a ponta: subagentes do Claude Code, agentes standalone com o Agent SDK (Python/TypeScript), bots de Telegram/WhatsApp e deploy 24/7 — com entrevista, guardrails e testes.",
+      "keywords": ["agentes", "agent-sdk", "subagentes", "skills", "telegram", "bots"]
+    }
+  ]
+}

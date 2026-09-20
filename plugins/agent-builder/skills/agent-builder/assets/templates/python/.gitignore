@@ -1,0 +1,5 @@
+# Segredos ficam fora do git (referência 10 da skill agent-builder, §1)
+.env
+.venv/
+__pycache__/
+*.pyc

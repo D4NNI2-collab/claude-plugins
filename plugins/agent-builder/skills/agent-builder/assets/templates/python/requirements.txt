@@ -1,0 +1,3 @@
+# requer Python >= 3.10 (com 3.9 o pip falha com "No matching distribution found")
+claude-agent-sdk~=0.2
+python-telegram-bot~=22.0 # [telegram]
